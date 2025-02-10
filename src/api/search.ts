@@ -1,36 +1,47 @@
 import { apiRequest } from "./interceptor";
 
+
 export const fetchHistogramData = async (formData: any) => {
-  return await apiRequest("https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms", {
-    method: "POST",
-    body: JSON.stringify({
-      intervalType: "month",
-      histogramTypes: ["totalDocuments", "riskFactors"],
-      issueDateInterval: {
-        startDate: formData.startDate,
-        endDate: formData.endDate,
-      },
-      searchContext: {
-        targetSearchEntitiesContext: {
-          targetSearchEntities: [
-            {
-              type: "company",
-              inn: formData.inn,
-              maxFullness: formData.maxFullness,
-              inBusinessNews: formData.businessContext,
-            },
-          ],
-          onlyMainRole: formData.mainRole,
-          tonality: formData.tonality,
-          onlyWithRiskFactors: formData.riskFactors,
+  try {
+    const response = await apiRequest("https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms", {
+      method: "POST",
+      body: JSON.stringify({
+        intervalType: "month",
+        histogramTypes: ["totalDocuments", "riskFactors"],
+        issueDateInterval: {
+          startDate: formData.startDate,
+          endDate: formData.endDate,
         },
-      },
-      limit: parseInt(formData.limit, 10),
-      sortType: "issueDate",
-      sortDirectionType: "desc",
-    }),
-  });
+        searchContext: {
+          targetSearchEntitiesContext: {
+            targetSearchEntities: [
+              {
+                type: "company",
+                inn: formData.inn,
+                maxFullness: formData.maxFullness,
+                inBusinessNews: formData.businessContext,
+              },
+            ],
+            onlyMainRole: formData.mainRole,
+            tonality: formData.tonality,
+            onlyWithRiskFactors: formData.riskFactors,
+          },
+        },
+        limit: parseInt(formData.limit, 10),
+        sortType: "issueDate",
+        sortDirectionType: "desc",
+      }),
+    });
+    console.log("Response is ", response);
+    return response.data;
+
+    
+  } catch (error) {
+    console.error("Ошибка получения гистограммы:", error);
+    return [];
+  }
 };
+
 
 
 export const fetchSearchResults = async (formData: any) => {

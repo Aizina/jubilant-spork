@@ -19,7 +19,7 @@ const Results = () => {
   const loadDocuments = async (page: number) => {
     setLoading(true);
     try {
-      const ids: string[] = searchItems.slice(page * 10, (page + 1) * 10).map((item) => item.encodedId);
+      const ids: string[] = searchItems.slice(page * 10, (page + 1) * 10).map((item) => item.encodedId).filter(id => id);
   
       if (ids.length === 0) {
         setHasMore(false);
@@ -27,24 +27,12 @@ const Results = () => {
       }
   
       const response: DocumentItem[] = await fetchDocumentDetails(ids);
-      console.log(response);
   
       setDocuments((prev) => {
         const allDocuments = [...prev, ...response];
-        const uniqueTitles = new Set<string>();
-        
-  
-        // Фильтрация уникальных документов по title.text
-        const filteredDocuments = allDocuments.filter((doc) => {
-          const title = doc.title?.text;
-          if (title && !uniqueTitles.has(title)) {
-            uniqueTitles.add(title);
-            return true;
-          }
-          return false;
-        });
-  
-        return filteredDocuments;
+        const uniqueDocuments = Array.from(new Set(allDocuments.map(doc => doc.id)))
+          .map(id => allDocuments.find(doc => doc.id === id)!);
+        return uniqueDocuments;
       });
   
       setCurrentPage(page + 1);

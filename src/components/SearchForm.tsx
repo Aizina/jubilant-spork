@@ -74,9 +74,10 @@ const SearchForm = () => {
     setLoading(true);
     try {
       const histogramResponse = await fetchHistogramData(form);
-      const histogramData = histogramResponse.data;
+      const histogramData = histogramResponse ?? []; 
+
       const searchResults = await fetchSearchResults(form);
-      console.log("Search Results are:",searchResults );
+      console.log("Histogram Results are:",histogramData );
       navigate("/results", { state: { histogramData, searchResults } });
     } catch (error) {
       alert("Ошибка поиска");
