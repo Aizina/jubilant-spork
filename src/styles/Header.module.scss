@@ -1,0 +1,285 @@
+.header {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+    /* Desktop Navigation */
+  .desktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px 20px;
+    max-width: 1500px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: row;
+      gap: 25px;
+      align-items: center; 
+
+      .navLink {
+        text-decoration: none;
+        color: #000000;
+      }
+    }
+
+    .authSection {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+  
+      .companyInfo {
+        background-color: rgba(217, 217, 217, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+  
+        .limitInfo {
+          color: rgba(0, 0, 0, 0.4);
+  
+          .highlightOne {
+            color: #000000;
+            font-weight: 500;
+          }
+  
+          .highlightTwo {
+            color: #8ac540;
+            font-weight: 500;
+          }
+        }
+      }
+  
+      .userSection {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+  
+  
+        .userDetails {
+          display: flex;
+          flex-direction: column;
+  
+          .userName {
+            display: inline-block;
+          }
+
+          .logoutButton {
+            background-color: transparent;
+            border: none;
+            opacity: 0.4;
+            text-align: end;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 10px;
+            cursor: pointer;
+          }
+        }
+  
+        .userIcon {
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    .authLinks {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+  
+      .loginLink {
+        background-color: #7ce3e1;
+        padding: 10px 20px;
+        font-weight: 500;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        color: #000000;
+        max-width: 100px;
+  
+      }
+  
+      .registerLink {
+        opacity: 0.4;
+        border-right: 2px solid #029491;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #000000;
+      }
+    }
+  }
+  
+    /* Mobile Navigation */
+
+  .mobile {
+    display: none;
+    width: 100vw;
+    height: 90px;
+
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    &.open {
+      background-color: #029491;
+      height: 100vh;
+    }
+
+    .mobileHeader {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      position: relative;
+      align-items: center;
+      width: 100%;
+      padding: 10px 20px;
+      height: 10vh;
+
+      .logo {
+        img {
+          width: 120px;
+        }
+      }
+
+      .companyInfo {
+        background-color: rgba(217, 217, 217, 0.3);
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 12px;
+
+        @media (max-width: 568px) {
+          font-size: 8px;
+          padding: 10px;
+        }
+  
+        .limitInfo {
+          color: rgba(0, 0, 0, 0.4);
+  
+          .highlightOne {
+            color: #000000;
+            font-weight: 500;
+          }
+  
+          .highlightTwo {
+            color: #8ac540;
+            font-weight: 500;
+          }
+        }
+      }
+      .hamburger {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 5px;
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+  
+      .mobileMenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        background-color: #fff;
+        display: none;
+        padding: 0;
+  
+        &.open {
+          min-height: max-content;
+          position: absolute;
+          display: block;
+          top: 10vh;
+          left: 0;
+          width: 100vw;
+          background-color: #029491;
+          color: #FFFFFF;
+          flex: 1;
+          padding-bottom: 40px;
+          height: 100vh;
+        }
+    
+        .nav {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          text-align: center;
+          margin-top: 30px;
+          .navLink {
+            text-decoration: none;
+            font-weight: 500;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+          }
+        }
+  
+        .userSection {
+          margin-top: 30px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          
+          .userName {
+            font-weight: bold;
+          }
+    
+          .logoutButton {
+            background-color: transparent;
+            border: none;
+            font-size: 14px;
+            color: #d9534f;
+            cursor: pointer;
+            margin-top: 5px;
+          }
+        }
+  
+        .authLinks {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          margin-top: 30px;
+          justify-content: center;
+          align-items: center;
+    
+          .registerLink {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: 400;
+            opacity: 0.4;
+          }
+    
+          .loginLink {
+            background-color: #7CE3E1;
+            padding: 15px 75px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

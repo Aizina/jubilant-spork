@@ -1,0 +1,40 @@
+.footer {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: #029491;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .footer_wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        width: 100%;
+        max-width: 1500px;
+
+        .info {
+            text-align: end;
+
+            p {
+                margin-bottom:10px;
+
+                a {
+                    text-decoration: none;
+                    color: white
+                }
+            }
+        }
+        
+    }
+
+    @media (max-width: 768px) {
+        font-size: 11px;
+      }
+
+}

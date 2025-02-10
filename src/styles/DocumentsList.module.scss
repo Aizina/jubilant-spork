@@ -1,0 +1,85 @@
+.documentsContainer {
+    display: grid;
+    grid-template-columns: auto auto; 
+    gap: 30px;
+    font-size: 14px;
+    width: 100%;
+
+    @media (max-width: 849px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 12px;
+    }
+  }
+  
+  /* ✅ Document Card */
+  .documentCard {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px #00000033;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    .documentHeader {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1em;
+      color: #666;
+      margin-bottom: 10px;
+    }
+  
+    h3 {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  
+    .documentTags {
+      font-size: 1em;
+      background-color: #FFB64F;
+      margin-bottom: 10px;
+    }
+
+  
+    .documentText {
+      font-size: 1em;
+      color: #000;
+      opacity: 0.5;
+      line-height: 1.5;
+      height: 250px; /* Limit to ~10 lines */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .documentFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    
+        .readMore {
+          background: #7CE3E1;
+          color: #000000;
+          border: none;
+          padding: 10px 17px;
+          cursor: pointer;
+          border-radius: 5px;
+
+          a{
+            text-decoration: none;
+            color: #000;
+          }
+    
+          &:hover {
+            background: #0056b3;
+          }
+        }
+    
+        .wordCount {
+          font-size: 0.8em;
+          color: #949494;
+        }
+      }
+    }

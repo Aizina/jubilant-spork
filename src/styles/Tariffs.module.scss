@@ -1,0 +1,159 @@
+.tariffs {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 50px;
+    .tariffsContainer {
+        width: 100%;
+        max-width: 1500px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        padding: 20px;
+
+        @media (max-width: 768px)  {
+          display: flex;
+          flex-direction: column;
+        }
+    }
+
+    @media (max-width: 1261px)  {
+      font-size: 18px;
+    }
+}
+
+  
+  .tariffCard {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .upperPart {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 35px 20px;
+        img {
+            width: 90px;
+            height: 90px;
+        }
+        .mainInfo {
+          h3 {
+            font-weight: 500;
+            font-size: 1.5em;
+          }
+          p{
+            font-weight: 400;
+            font-size: 0.9em;
+            margin-top: 10px;
+          }
+        }
+      }
+
+    .lowerPart {
+        padding: 35px 20px ;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .priceInfo {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          min-height: 100px;
+          .price {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: left;
+            align-items: center;
+            font-weight: 500;
+  
+            .oldPrice {
+              text-decoration: line-through;
+              text-decoration-color: black;
+              font-size: 1.25em;
+              opacity: 0.5;
+            }
+  
+            .newPrice {
+              font-size: 1.5em;
+            }
+          }
+
+          .installment {
+            font-size: 0.8em;
+          }
+        }
+
+        .featuresWrap {
+          margin-bottom: 35px;
+          min-height: 120px;
+          h4{
+            font-size: 1em;
+            font-weight: 500;
+            margin-bottom: 10px;
+          }
+          .features {
+            list-style: none;
+            padding: 0;
+          
+            li {
+              position: relative;
+              padding-left: 30px; 
+              margin-bottom: 7px; 
+              font-size: 0.9em;
+          
+              &::before {
+                content: "";
+                background: url("/img/checkmark.png") no-repeat center;
+                background-size: contain;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+            }
+          }
+        }
+
+        .button {
+          background-color: #5970FF;
+          color: #FFFFFF;
+          font-size: 1em;
+          font-weight: 400;
+          padding: 17px 30px;
+          border-radius: 5px;
+          border: none;
+
+          &.currentButton {
+            background-color: #D2D2D2;
+            color: #000;
+          }
+        }
+    }  
+  }
+  
+
+  .currentTariff {
+    border: 2px solid #000;
+  }
+  
+  .badge {
+    background: #3BA5E0;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.6em;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  

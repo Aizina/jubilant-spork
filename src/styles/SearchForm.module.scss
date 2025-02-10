@@ -1,0 +1,143 @@
+.searchForm{
+    box-shadow: 0px 0px 20px 0px #00000033;
+    padding: 30px;
+    max-width: 700px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 10px;
+
+    @media (max-width: 654px) {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.mainInfo,.dateInfo, .checkboxes, .submitDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mainInfo {
+    grid-column: 1 /span 1;
+    grid-row: 1/span 1;
+
+    label {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+        input, select {
+            width: 170px;
+            height: 30px;
+            text-align: center;
+            @media (max-width: 654px) {
+                width: 100%;;
+            }
+        }
+    }
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    @media (max-width: 654px) {
+        display: none;
+    }
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+  
+  input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  
+    &:checked {
+      border-color: #000000;
+    }
+  
+    &:checked::after {
+      content: "✔";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: #4cc429;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+  
+  .inactiveLabel {
+    opacity: 0.4;
+  }
+  
+  .activeLabel {
+    opacity: 1;
+  }
+   
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  
+  .dateInfo {
+    display: flex;
+    flex-direction: column;
+
+
+    .dates {
+        display: flex;
+        flex-direction: row;
+        gap : 15px;
+
+        @media (max-width: 654px) {
+            flex-direction: column;
+        }
+        
+        .dateWrapper {
+            input {
+                padding: 10px;
+            }
+        }
+
+    }
+  }
+ .submitDiv{
+    justify-content: flex-end;
+  .baseButton {
+    background-color: #5970FF;
+    opacity: 0.5;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px;
+
+    @media (max-width: 654px) {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    &.activeButton {
+        opacity: 1;
+    }
+  }
+  p{
+    color: #949494;
+  }
+}
